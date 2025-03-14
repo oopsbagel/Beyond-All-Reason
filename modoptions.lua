@@ -1223,6 +1223,26 @@ local options = {
         step   	= 1,
     },
 
+    {
+        key     = "sub_header",
+        section = "options_extra",
+        type    = "separator",
+    },
+
+    {
+        key     = "balancealgorithm",
+        name    = "Balance Algorithm",
+        type    = "list",
+        section = "options_extra",
+        def     = "auto",
+        items  = {
+            { key = "default",        name = "Default",        desc = "The algorithm chosen by the server admin which can be one of the other listed algorithms." },
+            { key = "auto",           name = "Auto",           desc = "This algorithm will choose split_noobs algorithm if there is at least one high uncertainty player in lobby or at least three parties. Otherwise it will use loser_picks algorithm." },
+            { key = "split_noobs",    name = "Split Noobs",    desc = "New players are seen as the worst in the lobby and teams will always pick them last. New players are defined as those having uncertainty higher than 6.65. Parties will be kept so long as team rating difference is close and standard deviation is close." },
+            { key = "loser_picks",    name = "Loser Picks",    desc = "The rating of new players is fully trusted. There is no difference between a new player and a 17os, 5-chevron player.\n Parties will be kept so long as a counter party of similar rating and standard deviation can be made." },
+            { key = "respect_avoids", name = "Respect Avoids", desc = "This balancer will try and do many things in this order of importance:\n    Ensure the team rating difference isn’t extremely large (within 10 points or 5%).\n    Keep parties together.\n    Respect avoids.\n    Minimise the team rating difference and captain rating difference.\nThe rating of new players (uncertainty higher than 6.65) is not trusted and teams will always pick them last." },
+        },
+    },
 
     ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
